@@ -1,12 +1,22 @@
-import os
+from math import sqrt
+
+message = ('Добро пожаловать в самую лучшую программу '
+           'для вычисления квадратного корня из заданного числа')
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-dir_files = [filename.lower() for filename in os.listdir(BASE_DIR)]
+def calculate_square_root(number):
+    """Вычисляет квадратный корень."""
+    return sqrt(number)
 
-files_list = ['main.py', 'readme.md']
+
+def calc(your_number):
+    """Расчёт квадратного корня."""
+    calc_number = calculate_square_root(your_number)
+    if your_number <= 0:
+        return
+    print('Мы вычислили квадратный корень из введенного вами числа. '
+          f'Это будет: {calc_number}')
 
 
-def test_program():
-    for filename in files_list:
-        assert filename in dir_files, f'Файл `{filename}` не в корне'
+print(message)
+calc(25.5)
